@@ -1,9 +1,9 @@
 from sqlalchemy import Column, String, Integer, ForeignKey
 from sqlalchemy.orm import Relationship
-from utils import database
+from utils.database import Base
 
 
-class Blogs(database.Base):
+class Blogs(Base):
     __tablename__ = "blogs"
 
     id = Column(Integer, index=True, primary_key=True)

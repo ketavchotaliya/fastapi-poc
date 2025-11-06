@@ -7,8 +7,8 @@ class BlogBase(BaseModel):
 
 
 class BlogRequest(BlogBase):
-    user_id: int
-
+    # user_id: int
+    pass
 
 class BlogResponse(BlogBase):
     # creator: UserBase

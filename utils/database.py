@@ -23,3 +23,11 @@ def get_db():
         yield db
     finally:
         db.close()
+
+# Function to create all defined tables
+
+
+def create_db_tables():
+    print("Creating database tables...")
+    Base.metadata.create_all(bind=engine)
+    print("Database tables created.")
