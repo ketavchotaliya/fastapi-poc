@@ -1,7 +1,9 @@
 from sqlalchemy.orm import Session
 from fastapi import APIRouter, Depends, status
 from utils import database
+from utils.auth import verify_access_token
 from schemas.blog import BlogResponse, BlogRequest
+from schemas.auth import TokenData
 from repository import blog as blog_repository
 
 router = APIRouter(
@@ -13,6 +15,7 @@ router = APIRouter(
 @router.post("/", status_code=status.HTTP_201_CREATED, response_model=BlogResponse)
 def create_blog(
     request_body: BlogRequest,
+    validate_auth: TokenData = Depends(verify_access_token), # ToDo validate this.. Token is missing
     db: Session = Depends(database.get_db)
 ):
     return blog_repository.create(request_body, db)
