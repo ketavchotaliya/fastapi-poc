@@ -1,3 +1,4 @@
+from fastapi import HTTPException, status
 from schemas.user import UserRequest
 from models.user import Users
 from sqlalchemy.orm import Session
@@ -16,3 +17,14 @@ def create(request_body: UserRequest, db: Session):
     db.commit()
     db.refresh(new_user)
     return new_user
+
+
+def get(id: int, db: Session):
+    user = db.query(Users).filter(Users.id == id).first()
+    if not user:
+        # response.status_code = status.HTTP_404_NOT_FOUND
+        # return {"success": False, "message": "Blog not found."}
+        raise HTTPException(
+            status_code=status.HTTP_404_NOT_FOUND, detail={"success": False, "message": "User not found."})
+
+    return user
