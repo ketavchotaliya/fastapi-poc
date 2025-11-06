@@ -1,5 +1,5 @@
 from fastapi import FastAPI
-from routes import blogs
+from routes import blogs, users
 from utils.database import create_db_tables
 
 app = FastAPI()
@@ -13,6 +13,7 @@ def startup_event():
     print("FastAPI application started up and database tables created.")
 
 app.include_router(blogs.router)
+app.include_router(users.router)
 
 
 @app.get("/")

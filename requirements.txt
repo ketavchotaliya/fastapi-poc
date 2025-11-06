@@ -18,6 +18,7 @@ Jinja2==3.1.6
 markdown-it-py==4.0.0
 MarkupSafe==3.0.3
 mdurl==0.1.2
+pwdlib==0.3.0
 pydantic==2.12.4
 pydantic_core==2.41.5
 Pygments==2.19.2
@@ -40,3 +41,5 @@ uvicorn==0.38.0
 uvloop==0.22.1
 watchfiles==1.1.1
 websockets==15.0.1
+argon2-cffi==25.1.0
+argon2-cffi-bindings==25.1.0
