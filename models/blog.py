@@ -9,6 +9,6 @@ class Blogs(Base):
     id = Column(Integer, index=True, primary_key=True)
     title = Column(String)
     body = Column(String)
-    user_id = Column(Integer, ForeignKey('users.id'))
+    user_id = Column(Integer, ForeignKey("users.id"))
 
     creator = Relationship("Users", back_populates="blogs")

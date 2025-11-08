@@ -14,5 +14,5 @@ class UserRequest(UserBase):
 class UserResponse(UserBase):
     blogs: list[BlogBase]
 
-    class Config():
+    class Config:
         from_attributes = True

@@ -24,7 +24,9 @@ def get(id: int, db: Session):
         # response.status_code = status.HTTP_404_NOT_FOUND
         # return {"success": False, "message": "Blog not found."}
         raise HTTPException(
-            status_code=status.HTTP_404_NOT_FOUND, detail={"success": False, "message": "Blog not found."})
+            status_code=status.HTTP_404_NOT_FOUND,
+            detail={"success": False, "message": "Blog not found."},
+        )
 
     return blog
 
@@ -34,7 +36,9 @@ def delete(id: int, db: Session):
 
     if not blog:
         raise HTTPException(
-            status_code=status.HTTP_404_NOT_FOUND, detail={"success": False, "message": "Blog not found."})
+            status_code=status.HTTP_404_NOT_FOUND,
+            detail={"success": False, "message": "Blog not found."},
+        )
     db.delete(blog)
     db.commit()
     return {"details": blog, "message": "Blog has been deleted."}
@@ -44,8 +48,10 @@ def update(id: int, request_body: BlogRequest, db: Session):
     blog = db.query(Blogs).filter(Blogs.id == id).first()
 
     if not blog:
-        raise HTTPException(status_code=status.HTTP_404_NOT_FOUND, detail={
-                            "success": False, "message": "Blog not found."})
+        raise HTTPException(
+            status_code=status.HTTP_404_NOT_FOUND,
+            detail={"success": False, "message": "Blog not found."},
+        )
 
     for key, value in request_body.dict().items():
         setattr(blog, key, value)

@@ -14,5 +14,5 @@ class BlogRequest(BlogBase):
 class BlogResponse(BlogBase):
     # creator: UserBase
 
-    class Config():
+    class Config:
         from_attributes = True

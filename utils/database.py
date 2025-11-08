@@ -9,8 +9,10 @@ DB_PATH = BASE_DIR / "blog.db"
 # SQLITE_DB_URL = f"sqlite:///{DB_PATH}"
 SQLITE_DB_URL = "sqlite:///./blog.db"
 
-engine = create_engine(SQLITE_DB_URL, connect_args={
-                       "check_same_thread": False}, )
+engine = create_engine(
+    SQLITE_DB_URL,
+    connect_args={"check_same_thread": False},
+)
 
 SessionLocal = sessionmaker(bind=engine, autoflush=False, autocommit=False)
 
@@ -23,6 +25,7 @@ def get_db():
         yield db
     finally:
         db.close()
+
 
 # Function to create all defined tables
 

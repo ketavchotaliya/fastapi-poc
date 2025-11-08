@@ -5,14 +5,13 @@ from utils.database import get_db
 from repository import user as user_repository
 
 
-router = APIRouter(
-    tags=["Users"],
-    prefix="/user"
-)
+router = APIRouter(tags=["Users"], prefix="/user")
+
 
 @router.post("/", response_model=UserResponse, status_code=status.HTTP_201_CREATED)
 def create_user(request_body: UserRequest, db: Session = Depends(get_db)):
     return user_repository.create(request_body, db)
+
 
 @router.get("/{id}", response_model=UserResponse, status_code=status.HTTP_200_OK)
 def get_users(id: int, db: Session = Depends(get_db)):
