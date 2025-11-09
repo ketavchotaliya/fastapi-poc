@@ -5,7 +5,7 @@ from utils.database import get_db
 from repository import user as user_repository
 
 
-router = APIRouter(tags=["Users"], prefix="/user")
+router = APIRouter()
 
 
 @router.post("/", response_model=UserResponse, status_code=status.HTTP_201_CREATED)

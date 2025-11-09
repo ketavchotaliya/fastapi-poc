@@ -6,7 +6,7 @@ from schemas.blog import BlogResponse, BlogRequest
 from schemas.auth import TokenData
 from repository import blog as blog_repository
 
-router = APIRouter(tags=["Blogs"], prefix="/blogs")
+router = APIRouter()
 
 
 @router.post("/", status_code=status.HTTP_201_CREATED, response_model=BlogResponse)

@@ -2,7 +2,9 @@ from fastapi import FastAPI
 from routes import blogs, users, auth
 from utils.database import create_db_tables
 
-app = FastAPI()
+app = FastAPI(redoc_url=None)
+
+APP_VERSION = "v1"
 
 
 @app.on_event("startup")
@@ -14,11 +16,6 @@ def startup_event():
     print("FastAPI application started up and database tables created.")
 
 
-app.include_router(blogs.router)
-app.include_router(users.router)
+app.include_router(blogs.router, tags=["Blogs"], prefix=f"/{APP_VERSION}/blogs")
+app.include_router(users.router, tags=["Users"], prefix=f"/{APP_VERSION}/user")
 app.include_router(auth.router)
-
-
-@app.get("/")
-def read_root():
-    return {"message": "Hello, FastAPI!"}
