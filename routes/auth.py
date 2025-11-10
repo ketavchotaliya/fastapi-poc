@@ -7,7 +7,7 @@ from utils.database import get_db
 from utils.hash import verify_password
 from utils.auth import create_access_token, ACCESS_TOKEN_EXPIRE_MINUTES
 
-router = APIRouter(tags=["Auth"])
+router = APIRouter()
 
 
 @router.post("/login")

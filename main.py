@@ -16,6 +16,6 @@ def startup_event():
     print("FastAPI application started up and database tables created.")
 
 
-app.include_router(blogs.router, tags=["Blogs"], prefix=f"/{APP_VERSION}/blogs")
-app.include_router(users.router, tags=["Users"], prefix=f"/{APP_VERSION}/user")
-app.include_router(auth.router)
+app.include_router(blogs.router, tags=["Blogs"], prefix=f"/api/{APP_VERSION}/blogs")
+app.include_router(users.router, tags=["Users"], prefix=f"/api/{APP_VERSION}/user")
+app.include_router(auth.router, tags=["Auth"], prefix=f"/api/{APP_VERSION}")
