@@ -1,10 +1,10 @@
 from sqlalchemy.orm import Session
 from fastapi import APIRouter, Depends, status
-from utils import database
-from utils.auth import verify_access_token
-from schemas.blog import BlogResponse, BlogRequest
-from schemas.auth import TokenData
-from repository import blog as blog_repository
+from src.utils import database
+from src.utils.auth import verify_access_token
+from src.schemas.blog import BlogResponse, BlogRequest
+from src.schemas.auth import TokenData
+from src.repository import blog as blog_repository
 
 router = APIRouter()
 

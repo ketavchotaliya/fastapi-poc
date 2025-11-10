@@ -1,8 +1,8 @@
 from fastapi import HTTPException, status
-from schemas.user import UserRequest
-from models.user import Users
+from src.schemas.user import UserRequest
+from src.models.user import Users
 from sqlalchemy.orm import Session
-from utils.hash import get_password_hash
+from src.utils.hash import get_password_hash
 
 
 def create(request_body: UserRequest, db: Session):

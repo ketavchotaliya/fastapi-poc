@@ -1,6 +1,6 @@
 from fastapi import FastAPI
-from routes import blogs, users, auth
-from utils.database import create_db_tables
+from src.routes import blogs, users, auth
+from src.utils.database import create_db_tables
 
 app = FastAPI(redoc_url=None)
 
